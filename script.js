@@ -1,3 +1,6 @@
+var removed = [];
+var index = 0;
+
 function onSubmit() {
     var Nameid = document.getElementById("name").value;
     var Emailid = document.getElementById("email").value;
@@ -80,3 +83,45 @@ function BirthYear_validation(BirthYearid)
     
     return true;
     }
+
+function add(x) 
+{
+    var element = document.getElementById(x);
+    var parent = element.parentNode;
+   
+    var list = parent.getElementsByTagName("li"); // filter just list elements 
+    var singleElement = list.item(x-1)
+ 
+
+    var name = singleElement.childNodes[1].childNodes[3].innerHTML;
+    var date =  singleElement.childNodes[3].childNodes[3].innerHTML; 
+    var button = document.createElement('button');
+    button.appendChild(document.createTextNode("remove"));
+    removed[index] = element.parentNode.removeChild(element);
+    button.onclick = function() {
+        addToUserList(removed[index]);
+        removeFromCheckoutList();
+
+    }
+    checkout = document.getElementById("checkout");
+    var li = document.createElement("li");
+    var textName = document.createTextNode(name);
+    var textDate = document.createTextNode(date);
+    li.id = index.toString();
+    li.appendChild(textName);
+    li.appendChild(textDate);
+    li.appendChild(button);
+    checkout.appendChild(li);
+}
+function addToUserList(x){
+    var UserList = document.getElementById("UserList");
+    UserList.appendChild(x);
+    
+}
+
+function removeFromCheckoutList(){
+   
+    var checkoutList = document.getElementById("checkout");
+    checkoutList.removeChild(checkoutList.childNodes[1]);
+   
+}
