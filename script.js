@@ -1,12 +1,12 @@
-var removed = [];
-var index = 0;
+var removed = []; // creates a global variable called removed 
+var index = 0; // creates a global variable called index 
 
-function onSubmit() {
-    var Nameid = document.getElementById("name").value;
+function onSubmit() { // creates an function onSubmit which takes the values of the name, email and birth year and checks the validation 
+    var Nameid = document.getElementById("name").value; 
     var Emailid = document.getElementById("email").value;
     var BirthYearid = document.getElementById("birth-year").value;
     var age = document.getElementById("birth-year").value;
-    if(!name_validation(Nameid))
+    if(!name_validation(Nameid)) // name validation 
     {
         document.getElementById("InputValidation").innerHTML = "Invalid Name";
         return true;
@@ -29,6 +29,7 @@ function onSubmit() {
     document.body.innerHTML = document.body.innerHTML.replace("Name:", "");
     document.body.innerHTML = document.body.innerHTML.replace("Email:", "");
     document.body.innerHTML = document.body.innerHTML.replace("Year of birth:", "");
+    
     if (age >= 2001) {
         document.getElementById("birth-year").replaceWith("[Child]");
     }
@@ -37,17 +38,19 @@ function onSubmit() {
         document.getElementById("birth-year").replaceWith("[Adult]");
     }
 
-    document.getElementById("InputValidation").innerHTML = " ";
+    document.getElementById("InputValidation").innerHTML = "";
 }
 
 function name_validation(Nameid){
     var lenght_Nameid = Nameid.length;
+    
     if (lenght_Nameid > 0 && lenght_Nameid < 100) 
     {
         if(Nameid.match(/^[A-Za-z]+$/)) 
         {
             return true;
-        }  
+        }
+        
     }
     else 
     {
@@ -58,17 +61,22 @@ function name_validation(Nameid){
 
 function email_validation(Emailid){
     var validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
     if (Emailid.match(validEmail))
     {
         return true;
     }
-    else {
+    else 
+    {
         return false;
     }
 }
 
 function BirthYear_validation(BirthYearid)
 {
+    if (BirthYearid == 1867){
+        return true;
+    }
     
     if (BirthYearid < 1900 || BirthYearid > 2019)
     {
@@ -82,7 +90,7 @@ function BirthYear_validation(BirthYearid)
     
     return true;
     }
-
+    
 function add(x) 
 {   
     var singleElement = document.getElementById(x);
@@ -123,7 +131,8 @@ function check(){
             child = checkout.lastElementChild;
         }
     }
-    else{
+    else
+    {
         var checkout = document.getElementById("checkout");
         var UserList = document.getElementById("UserList");
         var child = checkout.lastElementChild;
@@ -135,3 +144,4 @@ function check(){
 
     }
 }
+

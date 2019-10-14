@@ -3,7 +3,7 @@
 <head>
 <style>
     #img{
-        height: 200px;
+        height: 200px; /* This makes the images the appropreate size */
         width: 200px;
     }
 </style>
@@ -26,12 +26,12 @@ Year of birth: <input type="text" id="birth-year">
 </body>
 </html>
 
-<ul id ="UserList">
-    <li id = "0">
-            <div id ="box">
-                <div id = "categories">
-                    <h3 style = "color:sienna;">Book Name</h3>
-                    <h4 id="name">Naruto Volume One</h4>
+<ul id ="UserList">  <!-- This creates a unordered list called userList-->
+    <li id = "0"> <!--This is assigning the first id as zero and the rest of them are done the same way -->
+            <div id ="box"> <!-- creating a div id called box to put categories inside-->
+                <div id = "categories"> <!-- creating a div id called categories-->
+                    <h3 style = "color:sienna;">Book Name</h3> <!--creating the header for the book name-->
+                    <h4 id="name">Naruto Volume One</h4> <!--creating the header for the actual book name-->
                 
                 </div>
                 <div 
@@ -41,9 +41,9 @@ Year of birth: <input type="text" id="birth-year">
             </div>
             <div
             id = "categories">
-            <img src = "Naruto1.jpg" id="img">
+            <img src = "Naruto1.jpg" id="img"> <!-- attaches the jpg picture of the book or cd-->
         </div>
-        <button onclick="add(0)">Add</button>
+        <button onclick="add(0)">Add</button> <!--creates the add button under the picture for the user to click-->
             </div>
         
         </li>
@@ -221,11 +221,11 @@ Year of birth: <input type="text" id="birth-year">
         </li>
     </ul> 
 
-    <h2>Checkout Basket</h2>
-    <ul>
+    <h2>Checkout Basket</h2> <!-- creating the header for the checkout basket-->
+    <ul> <!--creating an un-ordered list again-->
     <ul id="checkout">
     </ul>
-    <button id="checkout" onclick="return check()">checkout</button>
+    <button id="checkout" onclick="return check()">checkout</button> <!--creates a checkout button in the checkout basket-->
 </ul>
 
 
