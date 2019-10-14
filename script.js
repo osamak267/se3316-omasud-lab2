@@ -30,14 +30,13 @@ function onSubmit() {
     document.body.innerHTML = document.body.innerHTML.replace("Email:", "");
     document.body.innerHTML = document.body.innerHTML.replace("Year of birth:", "");
     if (age >= 2001) {
-    
-        
         document.getElementById("birth-year").replaceWith("[Child]");
     }
 
     if (age < 2001){
         document.getElementById("birth-year").replaceWith("[Adult]");
     }
+
     document.getElementById("InputValidation").innerHTML = " ";
 }
 
@@ -85,9 +84,7 @@ function BirthYear_validation(BirthYearid)
     }
 
 function add(x) 
-{
-    console.log("working");
-   
+{   
     var singleElement = document.getElementById(x);
  
     var name = singleElement.querySelector("#box").querySelector("#name").innerHTML;
@@ -96,7 +93,6 @@ function add(x)
     button.appendChild(document.createTextNode("remove"));
     removed[index] = singleElement.parentNode.removeChild(singleElement);
     button.onclick = function() {
-        // addToUserList(button.parentNode);
         removeFromCheckoutList(button.parentNode);
 
     }
@@ -111,15 +107,31 @@ function add(x)
     checkout.appendChild(li);
     index++;
 }
-// function addToUserList(x){
-//     var UserList = document.getElementById("UserList");
-//     UserList.appendChild(x);
-    
-// }
 
 function removeFromCheckoutList(x){
     var UserList = document.getElementById("UserList");
     UserList.appendChild(removed[x.id])
     x.remove();
-   
+}
+function check(){
+    var question = confirm("Clear checkout");
+    if(question == true){
+        var checkout = document.getElementById("checkout");
+        var child = checkout.lastElementChild;
+        while(child){
+            child.remove();
+            child = checkout.lastElementChild;
+        }
+    }
+    else{
+        var checkout = document.getElementById("checkout");
+        var UserList = document.getElementById("UserList");
+        var child = checkout.lastElementChild;
+        while(child){
+            UserList.appendChild(removed[child.id]);
+            child.remove();
+            child = checkout.lastElementChild;
+        }
+
+    }
 }
