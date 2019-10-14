@@ -86,21 +86,18 @@ function BirthYear_validation(BirthYearid)
 
 function add(x) 
 {
-    var element = document.getElementById(x);
-    var parent = element.parentNode;
+    console.log("working");
    
-    var list = parent.getElementsByTagName("li"); // filter just list elements 
-    var singleElement = list.item(x-1)
+    var singleElement = document.getElementById(x);
  
-
-    var name = singleElement.childNodes[1].childNodes[3].innerHTML;
-    var date =  singleElement.childNodes[3].childNodes[3].innerHTML; 
+    var name = singleElement.querySelector("#box").querySelector("#name").innerHTML;
+    var date =  singleElement.querySelector("#box").querySelector("#date").innerHTML;
     var button = document.createElement('button');
     button.appendChild(document.createTextNode("remove"));
-    removed[index] = element.parentNode.removeChild(element);
+    removed[index] = singleElement.parentNode.removeChild(singleElement);
     button.onclick = function() {
-        addToUserList(removed[index]);
-        removeFromCheckoutList();
+        // addToUserList(button.parentNode);
+        removeFromCheckoutList(button.parentNode);
 
     }
     checkout = document.getElementById("checkout");
@@ -112,16 +109,17 @@ function add(x)
     li.appendChild(textDate);
     li.appendChild(button);
     checkout.appendChild(li);
+    index++;
 }
-function addToUserList(x){
-    var UserList = document.getElementById("UserList");
-    UserList.appendChild(x);
+// function addToUserList(x){
+//     var UserList = document.getElementById("UserList");
+//     UserList.appendChild(x);
     
-}
+// }
 
-function removeFromCheckoutList(){
-   
-    var checkoutList = document.getElementById("checkout");
-    checkoutList.removeChild(checkoutList.childNodes[1]);
+function removeFromCheckoutList(x){
+    var UserList = document.getElementById("UserList");
+    UserList.appendChild(removed[x.id])
+    x.remove();
    
 }
